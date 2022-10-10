@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  counter: 69,
+  counter: 69, //Este nombre es el llamado en el useSelector
 };
 
 export const counterSlice = createSlice({
