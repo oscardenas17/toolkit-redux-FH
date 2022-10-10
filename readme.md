@@ -95,4 +95,50 @@ export const store = configureStore({
 ```
 
 ## Use Redux State and Actions in React Components
-Now we can use the React-Redux hooks to let React components interact with the Redux store. We can read data from the store with useSelector, and dispatch actions using useDispatch. Create a src/features/counter/Counter.js file with a <Counter> component inside, then import that component into App.js and render it inside of <App>.
+
+Now we can use the React-Redux hooks to let React components interact with the Redux store. We can read data from the store with useSelector, and dispatch actions using useDispatch.
+
+```sh
+import reactLogo from "./assets/react.svg";
+import "./App.css";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  decrement,
+  increment,
+  incrementByAmount,
+} from "./store/slices/counter";
+
+function App() {
+  //Leer algo del store
+  const { counter } = useSelector((state) => state.counter);
+  //ejecutar las acciones con dispatch
+  const dispatch = useDispatch();
+
+  return (
+    <div className="App">
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src="/vite.svg" className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://reactjs.org" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1> count is {counter}</h1>
+      <div className="card">
+        <button onClick={() => dispatch(increment())}>Increment</button>
+      </div>
+      <div className="card">
+        <button onClick={() => dispatch(decrement())}>decrement</button>
+      </div>
+      <div className="card">
+        <button onClick={() => dispatch(incrementByAmount())}>
+          Increment By 2
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+```
