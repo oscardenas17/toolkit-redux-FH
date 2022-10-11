@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 export const pokemonSlice = createSlice({
-  name: "pokemon",
+  name: "pokemons",
   initialState: {
     page: 0,
     pokemons: [],
